@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMF - Portefólio</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Portfolio specific CSS -->
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.svg" alt="CMF Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="portfolio.html">Portefólio</a></li>
+                <li><a href="index.html#contacto" class="contact-us">Contacte-nos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Portfolio header -->
+    <section class="portfolio-header">
+        <h1>O Nosso Portefólio</h1>
+        <p>Conheça alguns dos nossos projetos mais emblemáticos, onde qualidade, inovação e excelência técnica são os pilares do nosso trabalho.</p>
+    </section>
+
+    <!-- Portfolio gallery -->
+    <section class="portfolio-gallery">
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Gallery items will be inserted dynamically from JavaScript -->
+        </div>
+    </section>
+
+    <!-- Portfolio modal -->
+    <div class="modal" id="project-modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <div class="carousel-container">
+                <div class="carousel" id="project-carousel">
+                    <div class="carousel-slides" id="carousel-slides">
+                        <!-- Carousel slides will be inserted dynamically -->
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev-btn" id="prev-btn">&lt;</button>
+                        <button class="carousel-btn next-btn" id="next-btn">&gt;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-details" id="project-details">
+                <!-- Project details will be inserted dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="footer-info">
+            <div>
+                <strong>MORADA:</strong>
+                <span>9 Rue Des Trois Cantons, 8399 Windhof</span>
+            </div>
+            <div>
+                <strong>TELEFONE:</strong>
+                <span>+352 621 407 025 / +352 671 886 098</span>
+            </div>
+            <div>
+                <strong>EMAIL:</strong>
+                <span>cardoso@cmf-lux.lu / michael@cmf-lux.lu</span>
+            </div>
+        </div>
+        <div class="footer-logo">
+            <img src="images/logo.svg" alt="CMF Logo">
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos e Condições</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright section -->
+    <div class="copyright">
+        <p>CMF © 2025. All Rights Reserved</p>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="js/common.js"></script>
+    <!-- Portfolio specific JavaScript -->
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
