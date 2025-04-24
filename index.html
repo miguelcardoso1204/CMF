@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMF - Construções</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f7941d;
+        }
+        
+        .contact-us {
+            color: #f7941d;
+            font-weight: 600;
+        }
+        
+        /* Hero section styles */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            padding: 0 50px;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .featured-project {
+            position: absolute;
+            bottom: 80px;
+            right: 50px;
+            background-color: #304ffe;
+            color: white;
+            padding: 25px 30px;
+            max-width: 300px;
+        }
+        
+        .featured-project h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .featured-project h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn-see-more {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+        
+        .btn-see-more span {
+            margin-right: 5px;
+        }
+        
+        /* Reputation section styles */
+        .reputation {
+            padding: 80px 50px;
+            text-align: center;
+        }
+        
+        .reputation h2 {
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+        
+        .reputation-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .reputation-card {
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 5px;
+            flex: 1;
+            max-width: 300px;
+            text-align: left;
+        }
+        
+        .reputation-card .icon {
+            color: #f7941d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .reputation-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .reputation-card p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #f5f5f5;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-info div {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-info div strong {
+            width: 100px;
+            color: #304ffe;
+            font-weight: 600;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .footer-links a {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: #333;
+        }
+        
+        /* Copyright section */
+        .copyright {
+            background-color: #304ffe;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiPgogICAgPHN0eWxlPgogICAgICAgIC5jbWYtbG9nbyB7IGZpbGw6ICMzMzM7IH0KICAgICAgICAuY21mLWJhciB7IGZpbGw6ICNmNzk0MWQ7IH0KICAgIDwvc3R5bGU+CiAgICA8cmVjdCBjbGFzcz0iY21mLWJhciIgeD0iMTAiIHk9IjE1IiB3aWR0aD0iMjAiIGhlaWdodD0iNTAiIC8+CiAgICA8cGF0aCBjbGFzcz0iY21mLWxvZ28iIGQ9Ik03MCwxNUg1MHY1MGgyMGM4LDAsMTUtMTAsMTUtMjVTNzgsMTUsNzAsMTV6IE03MCw1MEg2NVYzMGg1YzIuOCwwLDUsNS40LDUsMTBTNzIuOCw1MCw3MCw1MHoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbWYtbG9nbyIgZD0iTTk1LDE1djUwaDIwVjU1aC0xMFYxNUg5NXoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbWYtbG9nbyIgZD0iTTE0OCwxNWMtOCwwLTE1LDEwLTE1LDI1czcsNjAsMTUsNjBzMTUtNDUsMTUtNjBTMTU2LDE1LDE0OCwxNXogTTE0OCw1MGMtMi44LDAtNS01LjQtNS0xMHMyLjItMTAsNS0xMHM1LDUuNCw1LDEwUzE1MC44LDUwLDE0OCw1MHoiLz4KPC9zdmc+" alt="CMF Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#portfolio">Portefólio</a></li>
+                <li><a href="#contacto" class="contact-us">Contacte-nos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Estruturas que desafiam o tempo.</h1>
+        </div>
+        <div class="featured-project">
+            <h3>Projeto em Destaque</h3>
+            <h2>Edifício Infinity</h2>
+            <a href="#" class="btn-see-more">
+                <span>Ver mais</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Reputation section -->
+    <section class="reputation">
+        <h2>A nossa reputação</h2>
+        <div class="reputation-cards">
+            <div class="reputation-card">
+                <div class="icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#f7941d" />
+                    </svg>
+                </div>
+                <h3>Soluções Construtivas</h3>
+                <p>Da fundação aos acabamentos, entregamos qualidade e inovação em cada projeto.</p>
+            </div>
+            <div class="reputation-card">
+                <div class="icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#f7941d" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="6" fill="#f7941d"/>
+                    </svg>
+                </div>
+                <h3>Experiência Comprovada</h3>
+                <p>Décadas de experiência na construção de projetos icónicos.</p>
+            </div>
+            <div class="reputation-card">
+                <div class="icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" fill="#f7941d" />
+                    </svg>
+                </div>
+                <h3>Prazo e Eficiência</h3>
+                <p>Entregamos projetos dentro do prazo, sem perder o rigor técnico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="footer-info">
+            <div>
+                <strong>MORADA:</strong>
+                <span>9 Rue Des Trois Cantons, 8399 Windhof</span>
+            </div>
+            <div>
+                <strong>TELEFONE:</strong>
+                <span>+352 621 407 025 / +352 671 886 098</span>
+            </div>
+            <div>
+                <strong>EMAIL:</strong>
+                <span>cardoso@cmf-lux.lu / michael@cmf-lux.lu</span>
+            </div>
+        </div>
+        <div class="footer-logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiPgogICAgPHN0eWxlPgogICAgICAgIC5jbWYtbG9nbyB7IGZpbGw6ICMzMzM7IH0KICAgICAgICAuY21mLWJhciB7IGZpbGw6ICNmNzk0MWQ7IH0KICAgIDwvc3R5bGU+CiAgICA8cmVjdCBjbGFzcz0iY21mLWJhciIgeD0iMTAiIHk9IjE1IiB3aWR0aD0iMjAiIGhlaWdodD0iNTAiIC8+CiAgICA8cGF0aCBjbGFzcz0iY21mLWxvZ28iIGQ9Ik03MCwxNUg1MHY1MGgyMGM4LDAsMTUtMTAsMTUtMjVTNzgsMTUsNzAsMTV6IE03MCw1MEg2NVYzMGg1YzIuOCwwLDUsNS40LDUsMTBTNzIuOCw1MCw3MCw1MHoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbWYtbG9nbyIgZD0iTTk1LDE1djUwaDIwVjU1aC0xMFYxNUg5NXoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbWYtbG9nbyIgZD0iTTE0OCwxNWMtOCwwLTE1LDEwLTE1LDI1czcsNjAsMTUsNjBzMTUtNDUsMTUtNjBTMTU2LDE1LDE0OCwxNXogTTE0OCw1MGMtMi44LDAtNS01LjQtNS0xMHMyLjItMTAsNS0xMHM1LDUuNCw1LDEwUzE1MC44LDUwLDE0OCw1MHoiLz4KPC9zdmc+" alt="CMF Logo">
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos e Condições</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright section -->
+    <div class="copyright">
+        <p>CMF © 2025. All Rights Reserved</p>
+    </div>
+
+    <script>
+        // Add smooth scrolling to navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // For responsive design considerations
+        window.addEventListener('resize', function() {
+            // Could add responsive adjustments here if needed
+        });
+    </script>
+</body>
+</html>
