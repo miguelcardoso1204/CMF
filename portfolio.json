@@ -17,7 +17,7 @@
       "location": "Porto, Portugal",
       "category": "Residencial",
       "images": ["images/portfolio/aurora1.jpg", "images/portfolio/aurora2.jpg"],
-      "featured": false
+      "featured": true
     },
     {
       "id": "parque-industrial-norte",
