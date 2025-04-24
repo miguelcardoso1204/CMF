@@ -1,72 +1,18 @@
 [
-    {
-      "id": "edificio-infinity",
-      "title": "Edifício Infinity",
-      "description": "Um edifício comercial de luxo localizado no centro empresarial, com 12 andares e uma arquitetura de vanguarda que se tornou um marco na paisagem urbana.",
-      "year": "2023",
-      "location": "Lisboa, Portugal",
-      "category": "Comercial",
-      "images": ["images/portfolio/infinity1.jpg", "images/portfolio/infinity2.jpg", "images/portfolio/infinity3.jpg"],
-      "featured": true
-    },
-    {
-      "id": "residencial-aurora",
-      "title": "Residencial Aurora",
-      "description": "Complexo residencial de alto padrão com 24 apartamentos, áreas comuns luxuosas e acabamentos premium em cada unidade.",
-      "year": "2022",
-      "location": "Porto, Portugal",
-      "category": "Residencial",
-      "images": ["images/portfolio/aurora1.jpg", "images/portfolio/aurora2.jpg"],
-      "featured": true
-    },
-    {
-      "id": "parque-industrial-norte",
-      "title": "Parque Industrial Norte",
-      "description": "Construção de um parque industrial com 5 pavilhões modulares, escritórios e infraestruturas completas para operações industriais.",
-      "year": "2021",
-      "location": "Braga, Portugal",
-      "category": "Industrial",
-      "images": ["images/portfolio/parque1.jpg", "images/portfolio/parque2.jpg"],
-      "featured": false
-    },
-    {
-      "id": "hotel-riviera",
-      "title": "Hotel Riviera",
-      "description": "Renovação completa e ampliação de um hotel histórico, preservando elementos arquitetônicos originais enquanto atualizava todas as instalações.",
-      "year": "2020",
-      "location": "Cascais, Portugal",
-      "category": "Hospitalidade",
-      "images": ["images/portfolio/riviera1.jpg", "images/portfolio/riviera2.jpg", "images/portfolio/riviera3.jpg"],
-      "featured": true
-    },
-    {
-      "id": "centro-comercial-oeste",
-      "title": "Centro Comercial Oeste",
-      "description": "Centro comercial de média dimensão com 45 lojas, praça de alimentação e estacionamento subterrâneo para 300 veículos.",
-      "year": "2019",
-      "location": "Leiria, Portugal",
-      "category": "Comercial",
-      "images": ["images/portfolio/centro1.jpg", "images/portfolio/centro2.jpg"],
-      "featured": false
-    },
-    {
-      "id": "escola-nova",
-      "title": "Escola Nova",
-      "description": "Construção de uma escola primária moderna com 12 salas de aula, laboratórios, biblioteca e áreas recreativas exteriores.",
-      "year": "2018",
-      "location": "Coimbra, Portugal", 
-      "category": "Educacional",
-      "images": ["images/portfolio/escola1.jpg", "images/portfolio/escola2.jpg"],
-      "featured": false
-    },
-    {
-      "id": "ponte-rio-azul",
-      "title": "Ponte Rio Azul",
-      "description": "Construção de uma ponte pedonal sobre o Rio Azul, integrando-se na paisagem natural com um design inovador e sustentável.",
-      "year": "2017",
-      "location": "Aveiro, Portugal",
-      "category": "Infraestrutura",
-      "images": ["images/portfolio/ponte1.jpg", "images/portfolio/ponte2.jpg"],
-      "featured": true
-    }
-  ]
+  {
+    "id": "edificio-infinity",
+    "title": "Edifício Infinity",
+    "description": "Um edifício comercial de luxo localizado no centro empresarial, com 12 andares e uma arquitetura de vanguarda que se tornou um marco na paisagem urbana.",
+    "year": "2019",
+    "location": "Kirchberg, Luxembourg",
+    "images": ["assets/images/portfolio/infinity1.jpg", "assets/images/portfolio/infinity2.jpg", "assets/images/portfolio/infinity3.jpg"]
+  },
+  {
+    "id": "cnis",
+    "title": "cnis",
+    "description": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+    "year": "2016",
+    "location": "Luxembourg",
+    "images": ["assets/images/portfolio/cnis1.jpg", "assets/images/portfolio/cnis2.jpg", "assets/images/portfolio/cnis3.jpg"]
+  }
+]

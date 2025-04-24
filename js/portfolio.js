@@ -14,13 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalTitle = document.querySelector('.modal-title');
     const modalYear = document.querySelector('.modal-year');
     const modalLocation = document.querySelector('.modal-location');
-    const modalCategory = document.querySelector('.modal-category');
     const modalDescription = document.querySelector('.modal-description');
     const modalGallery = document.querySelector('.modal-gallery');
-    
-    // Filter buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    let activeFilter = 'all';
     
     // Load portfolio data from JSON file
     fetch('portfolio.json')
@@ -33,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(projects => {
             // Initialize the portfolio with all projects
             displayProjects(projects);
-            
-            // Setup filter functionality
-            setupFilters(projects);
         })
         .catch(error => {
             console.error('Error loading portfolio data:', error);
@@ -50,16 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Display projects in the portfolio grid
      * @param {Array} projects - Array of project objects
-     * @param {String} filter - Category filter to apply
      */
-    function displayProjects(projects, filter = 'all') {
+    function displayProjects(projects) {
         // Clear the container
         portfolioContainer.innerHTML = '';
         
-        // Filter projects if needed
-        const filteredProjects = filterProjects(projects, filter);
-        
-        if (filteredProjects.length === 0) {
+        if (projects.length === 0) {
             // Display empty state
             portfolioContainer.innerHTML = `
                 <div class="empty-state">
@@ -68,14 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         <path d="M12 11V15M12 15L14 13M12 15L10 13" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <h3>Nenhum projeto encontrado</h3>
-                    <p>Tente selecionar outra categoria.</p>
+                    <p>Por favor, adicione projetos ao arquivo portfolio.json.</p>
                 </div>
             `;
             return;
         }
         
         // Create project cards and add to container
-        filteredProjects.forEach(project => {
+        projects.forEach(project => {
             const projectCard = createProjectCard(project);
             portfolioContainer.appendChild(projectCard);
         });
@@ -83,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add click event to all project cards
         document.querySelectorAll('.portfolio-item').forEach((card, index) => {
             card.addEventListener('click', function() {
-                openProjectModal(filteredProjects[index]);
+                openProjectModal(projects[index]);
             });
         });
     }
@@ -100,10 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.innerHTML = `
             <div class="portfolio-image" style="background-image: url('${project.images[0]}');">
-                ${project.featured ? '<span class="featured-tag">Destaque</span>' : ''}
             </div>
             <div class="portfolio-info">
-                <span class="portfolio-category">${project.category}</span>
                 <h3 class="portfolio-title">${project.title}</h3>
                 <div class="portfolio-location">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modalTitle.textContent = project.title;
         modalYear.textContent = project.year;
         modalLocation.textContent = project.location;
-        modalCategory.textContent = project.category;
         modalDescription.textContent = project.description;
         
         // Clear gallery and add project images
@@ -180,58 +165,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeProjectModal();
         }
     });
-    
-    /**
-     * Filter projects based on category
-     * @param {Array} projects - Array of project objects
-     * @param {String} filter - Category filter to apply
-     * @return {Array} Filtered projects array
-     */
-    function filterProjects(projects, filter) {
-        if (filter === 'all') {
-            return projects;
-        } else if (filter === 'featured') {
-            return projects.filter(project => project.featured);
-        } else {
-            return projects.filter(project => project.category === filter);
-        }
-    }
-    
-    /**
-     * Setup filter buttons functionality
-     * @param {Array} projects - Array of project objects
-     */
-    function setupFilters(projects) {
-        // Get unique categories from projects
-        const categories = [...new Set(projects.map(project => project.category))];
-        
-        // Create category filter buttons dynamically if they don't exist
-        const filterContainer = document.querySelector('.portfolio-filters');
-        if (filterContainer && filterButtons.length <= 2) { // Only 'All' and 'Featured' exist
-            categories.forEach(category => {
-                const button = document.createElement('button');
-                button.className = 'filter-btn';
-                button.setAttribute('data-filter', category);
-                button.textContent = category;
-                filterContainer.appendChild(button);
-            });
-        }
-        
-        // Add click event to all filter buttons (including dynamically added ones)
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active filter
-                activeFilter = this.getAttribute('data-filter');
-                
-                // Update active button class
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Display filtered projects
-                displayProjects(projects, activeFilter);
-            });
-        });
-    }
 });
