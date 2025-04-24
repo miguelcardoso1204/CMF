@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="portfolio.html" class="active">Portefólio</a></li>
-                <li><a href="contact.html" class="contact-us">Contacte-nos</a></li>
+                <li><a href="contacto.html" class="contact-us">Contacte-nos</a></li>
             </ul>
         </nav>
     </header>
@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Portfolio modal for project details -->
+    <!-- Portfolio modal for project details - Updated with carousel and side-by-side layout -->
     <div class="portfolio-modal" id="portfolio-modal">
         <div class="modal-content">
             <div class="modal-close">
@@ -45,29 +45,51 @@
                     <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div class="modal-header">
-                <h2 class="modal-title">Título do Projeto</h2>
-                <div class="modal-meta">
-                    <div class="modal-meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="modal-year">2023</span>
+            <div class="modal-inner">
+                <!-- Left side: Image carousel -->
+                <div class="modal-carousel">
+                    <div class="carousel-container" id="carousel-container">
+                        <!-- Images will be added here dynamically -->
                     </div>
-                    <div class="modal-meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="modal-location">Lisboa, Portugal</span>
+                    <div class="carousel-controls">
+                        <button class="carousel-prev" id="carousel-prev">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="carousel-indicators" id="carousel-indicators">
+                            <!-- Indicators will be added here dynamically -->
+                        </div>
+                        <button class="carousel-next" id="carousel-next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="modal-gallery">
-                <!-- Project images will be loaded here dynamically -->
-            </div>
-            <div class="modal-description">
-                <!-- Project description will be loaded here dynamically -->
+                
+                <!-- Right side: Project details -->
+                <div class="modal-details">
+                    <h2 class="modal-title">Título do Projeto</h2>
+                    <div class="modal-meta">
+                        <div class="modal-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="modal-year">2023</span>
+                        </div>
+                        <div class="modal-meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="modal-location">Lisboa, Portugal</span>
+                        </div>
+                    </div>
+                    <div class="modal-description">
+                        <!-- Project description will be loaded here dynamically -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

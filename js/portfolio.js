@@ -1,5 +1,5 @@
 /**
- * CMF Construction - Portfolio Script
+ * CMF Construction - Portfolio Script with Carousel
  * This script loads portfolio projects from a JSON file
  * and displays them dynamically on the portfolio page.
  */
@@ -15,7 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalYear = document.querySelector('.modal-year');
     const modalLocation = document.querySelector('.modal-location');
     const modalDescription = document.querySelector('.modal-description');
-    const modalGallery = document.querySelector('.modal-gallery');
+    
+    // Carousel elements
+    const carouselContainer = document.getElementById('carousel-container');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const carouselIndicators = document.getElementById('carousel-indicators');
+    
+    // Carousel state
+    let currentSlide = 0;
+    let slideCount = 0;
     
     // Load portfolio data from JSON file
     fetch('portfolio.json')
@@ -113,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Open project modal with details
+     * Open project modal with details and carousel
      * @param {Object} project - Project data object
      */
     function openProjectModal(project) {
@@ -123,18 +132,82 @@ document.addEventListener('DOMContentLoaded', function() {
         modalLocation.textContent = project.location;
         modalDescription.textContent = project.description;
         
-        // Clear gallery and add project images
-        modalGallery.innerHTML = '';
-        project.images.forEach(image => {
-            const imgContainer = document.createElement('div');
-            imgContainer.className = 'gallery-item';
-            imgContainer.innerHTML = `<img src="${image}" alt="${project.title}">`;
-            modalGallery.appendChild(imgContainer);
-        });
+        // Setup carousel
+        setupCarousel(project.images, project.title);
         
         // Show the modal
         portfolioModal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    /**
+     * Setup image carousel for the project
+     * @param {Array} images - Array of image URLs
+     * @param {String} title - Project title for image alt text
+     */
+    function setupCarousel(images, title) {
+        // Clear carousel
+        carouselContainer.innerHTML = '';
+        carouselIndicators.innerHTML = '';
+        
+        // Reset carousel state
+        currentSlide = 0;
+        slideCount = images.length;
+        
+        // Create slides
+        images.forEach((image, index) => {
+            // Create slide
+            const slide = document.createElement('div');
+            slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+            slide.style.backgroundImage = `url('${image}')`;
+            carouselContainer.appendChild(slide);
+            
+            // Create indicator
+            const indicator = document.createElement('div');
+            indicator.className = `carousel-indicator ${index === 0 ? 'active' : ''}`;
+            indicator.setAttribute('data-slide', index);
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            carouselIndicators.appendChild(indicator);
+        });
+        
+        // Setup navigation buttons
+        carouselPrev.onclick = prevSlide;
+        carouselNext.onclick = nextSlide;
+    }
+    
+    /**
+     * Go to a specific slide in the carousel
+     * @param {Number} slideIndex - Index of the slide to show
+     */
+    function goToSlide(slideIndex) {
+        // Hide current slide
+        document.querySelector('.carousel-slide.active').classList.remove('active');
+        document.querySelector('.carousel-indicator.active').classList.remove('active');
+        
+        // Show new slide
+        document.querySelectorAll('.carousel-slide')[slideIndex].classList.add('active');
+        document.querySelectorAll('.carousel-indicator')[slideIndex].classList.add('active');
+        
+        // Update current slide index
+        currentSlide = slideIndex;
+    }
+    
+    /**
+     * Go to the next slide in the carousel
+     */
+    function nextSlide() {
+        const newIndex = (currentSlide + 1) % slideCount;
+        goToSlide(newIndex);
+    }
+    
+    /**
+     * Go to the previous slide in the carousel
+     */
+    function prevSlide() {
+        const newIndex = (currentSlide - 1 + slideCount) % slideCount;
+        goToSlide(newIndex);
     }
     
     /**
@@ -165,4 +238,28 @@ document.addEventListener('DOMContentLoaded', function() {
             closeProjectModal();
         }
     });
+    
+    // Auto-advance carousel every 5 seconds when modal is open
+    let carouselInterval;
+    
+    function startCarouselInterval() {
+        carouselInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function stopCarouselInterval() {
+        clearInterval(carouselInterval);
+    }
+    
+    // Start interval when modal opens, stop when it closes
+    portfolioModal.addEventListener('transitionend', function() {
+        if (portfolioModal.classList.contains('active')) {
+            startCarouselInterval();
+        }
+    });
+    
+    modalClose.addEventListener('click', stopCarouselInterval);
+    
+    // Pause carousel on hover
+    carouselContainer.addEventListener('mouseenter', stopCarouselInterval);
+    carouselContainer.addEventListener('mouseleave', startCarouselInterval);
 });
