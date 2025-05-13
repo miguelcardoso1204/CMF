@@ -239,27 +239,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Auto-advance carousel every 5 seconds when modal is open
-    let carouselInterval;
-    
-    function startCarouselInterval() {
-        carouselInterval = setInterval(nextSlide, 5000);
-    }
-    
-    function stopCarouselInterval() {
-        clearInterval(carouselInterval);
-    }
-    
-    // Start interval when modal opens, stop when it closes
-    portfolioModal.addEventListener('transitionend', function() {
-        if (portfolioModal.classList.contains('active')) {
-            startCarouselInterval();
-        }
-    });
-    
-    modalClose.addEventListener('click', stopCarouselInterval);
-    
-    // Pause carousel on hover
-    carouselContainer.addEventListener('mouseenter', stopCarouselInterval);
-    carouselContainer.addEventListener('mouseleave', startCarouselInterval);
 });
