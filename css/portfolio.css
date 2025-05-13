@@ -1,5 +1,5 @@
 /* 
- * CMF Portfolio - Complete CSS with carousel
+ * CMF Portfolio - CSS with simplified grid view
  */
 
 /* Portfolio header */
@@ -56,28 +56,14 @@
 
 .portfolio-title {
     font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.portfolio-location {
-    color: #777;
-    font-size: 0.9rem;
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+    color: #333;
 }
 
 .portfolio-year {
     font-weight: 600;
     color: #304ffe;
     margin-bottom: 15px;
-}
-
-.portfolio-description {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.6;
 }
 
 .portfolio-link {
@@ -94,6 +80,12 @@
 
 .portfolio-link:hover svg {
     transform: translateX(5px);
+}
+
+/* Hide location and description in grid view */
+.portfolio-location, 
+.portfolio-description {
+    display: none;
 }
 
 /* Empty state */

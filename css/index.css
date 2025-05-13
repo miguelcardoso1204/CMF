@@ -2,7 +2,7 @@
 .hero {
     position: relative;
     height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('/api/placeholder/1200/800') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('/assets/images/portfolio/cnis1.jpg') center/cover no-repeat;
     color: white;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
 }
 
 .reputation-card {
-    border: 1px solid #eee;
+    border: 3px solid #eee;
     padding: 30px;
     border-radius: 5px;
     flex: 1;

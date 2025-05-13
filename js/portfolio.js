@@ -83,6 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 openProjectModal(projects[index]);
             });
         });
+
+        // Add click event to all "Ver detalhes" buttons
+        document.querySelectorAll('.portfolio-link').forEach((button, index) => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // Prevent triggering the card click
+                openProjectModal(projects[index]);
+            });
+        });
     }
     
     /**
@@ -100,15 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="portfolio-info">
                 <h3 class="portfolio-title">${project.title}</h3>
-                <div class="portfolio-location">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21C16 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 8 17 12 21Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    ${project.location}
-                </div>
                 <div class="portfolio-year">${project.year}</div>
-                <p class="portfolio-description">${project.description.substring(0, 100)}${project.description.length > 100 ? '...' : ''}</p>
                 <a href="#" class="portfolio-link">
                     Ver detalhes
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -238,5 +239,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeProjectModal();
         }
     });
-    
 });

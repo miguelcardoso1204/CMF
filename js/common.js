@@ -2,23 +2,6 @@
  * Common JavaScript functions for all pages
  */
 
-// Add smooth scrolling to navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
 
 // For responsive design considerations
 window.addEventListener('resize', function() {
